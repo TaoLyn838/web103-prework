@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import './AddCreator.css'
 import { supabase } from '../client'
+import Icons from '../icons'
 const AddCreator = () => {
   const [creatorData, setCreatorData] = useState({
     name: '',
     description: '',
-    url: '',
     imageURL: '',
+    twitterURL: '',
+    instagramURL: '',
+    youtubeURL: '',
   })
 
   const [isImageValid, setIsImageValid] = useState(null)
@@ -47,8 +50,10 @@ const AddCreator = () => {
       {
         name: creatorData.name,
         description: creatorData.description,
-        url: creatorData.url,
         imageURL: imageURL,
+        twitterURL: creatorData.twitterURL,
+        instagramURL: creatorData.instagramURL,
+        youtubeURL: creatorData.youtubeURL,
       },
     ])
     if (error) {
@@ -59,8 +64,10 @@ const AddCreator = () => {
       setCreatorData({
         name: '',
         description: '',
-        url: '',
         imageURL: '',
+        twitterURL: '',
+        instagramURL: '',
+        youtubeURL: '',
       })
       setIsImageValid(null)
       window.location = '/'
@@ -68,7 +75,7 @@ const AddCreator = () => {
   }
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto px-4 m-5">
       <form className="max-w-2xl mx-auto" onSubmit={handleSubmit}>
         <div className="mb-5">
           <label htmlFor="name" className="add-label">
@@ -92,7 +99,6 @@ const AddCreator = () => {
           <textarea
             name="description"
             id="description"
-            required
             value={creatorData.description}
             onChange={handleChange}
             className="add-input"
@@ -100,14 +106,39 @@ const AddCreator = () => {
         </div>
         <div className="mb-5">
           <label htmlFor="url" className="add-label">
-            URL
+            Youtube URL
           </label>
           <input
             type="url"
-            name="url"
-            id="url"
-            required
-            value={creatorData.url}
+            name="youtubeURL"
+            id="youtubeURL"
+            value={creatorData.youtubeURL}
+            onChange={handleChange}
+            className="add-input"
+          />
+        </div>
+        <div className="mb-5">
+          <label htmlFor="url" className="add-label">
+            Twitter URL
+          </label>
+          <input
+            type="url"
+            name="twitterURL"
+            id="twitterURL"
+            value={creatorData.twitterURL}
+            onChange={handleChange}
+            className="add-input"
+          />
+        </div>
+        <div className="mb-5">
+          <label htmlFor="url" className="add-label">
+            Instagram URL
+          </label>
+          <input
+            type="url"
+            name="instagramURL"
+            id="instagramURL"
+            value={creatorData.instagramURL}
             onChange={handleChange}
             className="add-input"
           />
@@ -120,11 +151,32 @@ const AddCreator = () => {
             type="url"
             name="imageURL"
             id="imageURL"
-            required
             value={creatorData.imageURL}
             onChange={handleChange}
             className="add-input"
           />
+        </div>
+        <div className="mb-5">
+          <button
+            type="button"
+            className="add-submit-btn"
+            onClick={handleImageValidation}
+          >
+            Validate Image URL
+          </button>
+          {isImageValid === true && (
+            <div className="mb-3">
+              <img
+                src={creatorData.imageURL}
+                alt="Valid preview"
+                className="mt-2 rounded-md shadow-md"
+              />
+              <p className="text-green-500">Image URL is valid!</p>
+            </div>
+          )}
+          {isImageValid === false && (
+            <p className="text-red-500">Image URL is invalid.</p>
+          )}
         </div>
         <div className="mb-5">
           <button type="submit" className="add-submit-btn">

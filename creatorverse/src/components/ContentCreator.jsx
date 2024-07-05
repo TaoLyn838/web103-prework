@@ -3,12 +3,20 @@ import Icons from '../icons/index'
 import { Link } from 'react-router-dom'
 import './ContentCreator.css'
 
-const ContentCreator = ({ id, name, url, description, imageURL }) => {
+const ContentCreator = ({
+  id,
+  name,
+  description,
+  imageURL,
+  youtubeURL,
+  instagramURL,
+  twitterURL,
+}) => {
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-between">
       <div className="relative">
         <img
-          className="rounded-t-lg w-full h-96 object-cover" // Set a fixed height and width
+          className="rounded-t-lg w-full h-96 object-cover"
           src={
             imageURL != null && imageURL !== ''
               ? imageURL
@@ -36,12 +44,23 @@ const ContentCreator = ({ id, name, url, description, imageURL }) => {
             {description}
           </p>
         </div>
-        <a
-          href={url}
-          className="mt-auto inline-flex justify-center items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          Read more
-        </a>
+        <div className="grid grid-cols-3 gap-6">
+          {youtubeURL && youtubeURL !== '' && (
+            <a href={youtubeURL} className="media-icon left">
+              <Icons.Youtube />
+            </a>
+          )}
+          {instagramURL && instagramURL !== '' && (
+            <a href={instagramURL} className="media-icon middle">
+              <Icons.Instagram />
+            </a>
+          )}
+          {twitterURL && twitterURL !== '' && (
+            <a href={twitterURL} className="media-icon right">
+              <Icons.X />
+            </a>
+          )}
+        </div>
       </div>
     </div>
   )

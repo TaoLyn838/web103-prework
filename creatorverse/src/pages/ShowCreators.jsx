@@ -26,8 +26,10 @@ const ShowCreators = () => {
               id={creator.id}
               name={creator.name}
               description={creator.description}
-              url={creator.url}
               imageURL={creator.imageURL}
+              youtubeURL={creator.youtubeURL}
+              instagramURL={creator.instagramURL}
+              twitterURL={creator.twitterURL}
             />
           ))
         ) : (

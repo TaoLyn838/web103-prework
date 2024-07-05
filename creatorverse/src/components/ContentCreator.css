@@ -3,3 +3,22 @@
   width: 100%;
   height: 100%;
 }
+
+.media-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.left {
+  justify-content: flex-start; /* Align to the left of the column */
+}
+
+.middle {
+  justify-content: center; /* Align to the center of the column */
+}
+
+.right {
+  justify-content: flex-end; /* Align to the right of the column */
+}

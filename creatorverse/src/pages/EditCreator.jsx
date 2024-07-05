@@ -8,8 +8,10 @@ const EditCreator = () => {
   const [creatorData, setCreatorData] = useState({
     name: '',
     description: '',
-    url: '',
     imageURL: '',
+    twitterURL: '',
+    instagramURL: '',
+    youtubeURL: '',
   })
 
   const [isImageValid, setIsImageValid] = useState(null)
@@ -45,7 +47,10 @@ const EditCreator = () => {
   }
 
   const handleDelete = async () => {
-    const { error } = await supabase.from('creators').delete().eq('id', id)
+    const { data, error } = await supabase
+      .from('creators')
+      .delete()
+      .match({ id: id })
 
     if (error) {
       console.error('Error deleting creator:', error)
@@ -78,8 +83,10 @@ const EditCreator = () => {
       .update({
         name: creatorData.name,
         description: creatorData.description,
-        url: creatorData.url,
+        youtubeURL: creatorData.youtubeURL,
         imageURL: imageURL,
+        twitterURL: creatorData.twitterURL,
+        instagramURL: creatorData.instagramURL,
       })
       .eq('id', id)
 
@@ -93,7 +100,7 @@ const EditCreator = () => {
   }
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto px-4 m-10">
       <form className="max-w-2xl mx-auto" onSubmit={handleChange}>
         <div className="mb-5">
           <label htmlFor="name" className="add-label">
@@ -117,7 +124,6 @@ const EditCreator = () => {
           <textarea
             name="description"
             id="description"
-            required
             value={creatorData.description}
             onChange={handleChange}
             className="add-input"
@@ -125,14 +131,39 @@ const EditCreator = () => {
         </div>
         <div className="mb-5">
           <label htmlFor="url" className="add-label">
-            URL
+            Youtube URL
           </label>
           <input
             type="url"
-            name="url"
-            id="url"
-            required
-            value={creatorData.url}
+            name="youtubeURL"
+            id="youtubeURL"
+            value={creatorData.youtubeURL}
+            onChange={handleChange}
+            className="add-input"
+          />
+        </div>
+        <div className="mb-5">
+          <label htmlFor="url" className="add-label">
+            Twitter URL
+          </label>
+          <input
+            type="url"
+            name="twitterURL"
+            id="twitterURL"
+            value={creatorData.twitterURL}
+            onChange={handleChange}
+            className="add-input"
+          />
+        </div>
+        <div className="mb-5">
+          <label htmlFor="url" className="add-label">
+            Instagram URL
+          </label>
+          <input
+            type="url"
+            name="instagramURL"
+            id="instagramURL"
+            value={creatorData.instagramURL}
             onChange={handleChange}
             className="add-input"
           />
