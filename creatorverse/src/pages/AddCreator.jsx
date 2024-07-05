@@ -63,12 +63,13 @@ const AddCreator = () => {
         imageURL: '',
       })
       setIsImageValid(null)
+      window.location = '/'
     }
   }
 
   return (
     <div className="container mx-auto px-4">
-      <form className="max-w-2xl mx-auto" onSubmit={handleChange}>
+      <form className="max-w-2xl mx-auto" onSubmit={handleSubmit}>
         <div className="mb-5">
           <label htmlFor="name" className="add-label">
             Name
@@ -126,33 +127,7 @@ const AddCreator = () => {
           />
         </div>
         <div className="mb-5">
-          <button
-            type="button"
-            className="add-submit-btn"
-            onClick={handleImageValidation}
-          >
-            Validate Image URL
-          </button>
-          {isImageValid === true && (
-            <div className="mb-3">
-              <img
-                src={creatorData.imageURL}
-                alt="Valid preview"
-                className="mt-2 rounded-md shadow-md"
-              />
-              <p className="text-green-500">Image URL is valid!</p>
-            </div>
-          )}
-          {isImageValid === false && (
-            <p className="text-red-500">Image URL is invalid.</p>
-          )}
-        </div>
-        <div className="mb-5">
-          <button
-            type="submit"
-            className="add-submit-btn"
-            onClick={handleSubmit}
-          >
+          <button type="submit" className="add-submit-btn">
             Submit
           </button>
         </div>
