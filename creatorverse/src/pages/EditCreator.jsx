@@ -185,7 +185,7 @@ const EditCreator = () => {
         <div className="mb-5">
           <button
             type="button"
-            className="add-submit-btn"
+            className="btn btn-outline"
             onClick={handleImageValidation}
           >
             Validate Image URL
@@ -205,10 +205,18 @@ const EditCreator = () => {
           )}
         </div>
         <div className="grid grid-cols-2 gap-6">
-          <button type="update" className="update-btn" onClick={handleUpdate}>
+          <button
+            type="update"
+            className="btn btn-success"
+            onClick={handleUpdate}
+          >
             Update
           </button>
-          <button type="delete" className="del-btn" onClick={handleDelete}>
+          <button
+            type="delete"
+            className="btn btn-outline btn-error"
+            onClick={handleDelete}
+          >
             Delete
           </button>
         </div>

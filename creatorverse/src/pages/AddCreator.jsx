@@ -159,7 +159,7 @@ const AddCreator = () => {
         <div className="mb-5">
           <button
             type="button"
-            className="add-submit-btn"
+            className="btn btn-outline"
             onClick={handleImageValidation}
           >
             Validate Image URL
@@ -179,7 +179,7 @@ const AddCreator = () => {
           )}
         </div>
         <div className="mb-5">
-          <button type="submit" className="add-submit-btn">
+          <button type="submit" className="btn btn-wide btn-success">
             Submit
           </button>
         </div>
