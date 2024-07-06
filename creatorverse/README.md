@@ -34,6 +34,8 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
+https://github.com/TaoLyn838/web103_prework/assets/58400041/868edf7c-2bcd-4dab-b994-d48cb0bfe59e
+
 ## Notes
 
 ## License
