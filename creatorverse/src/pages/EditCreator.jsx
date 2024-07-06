@@ -88,7 +88,7 @@ const EditCreator = () => {
         twitterURL: creatorData.twitterURL,
         instagramURL: creatorData.instagramURL,
       })
-      .eq('id', id)
+      .match({ id: id })
 
     if (error) {
       console.error('Error updating creator:', error)
@@ -206,14 +206,14 @@ const EditCreator = () => {
         </div>
         <div className="grid grid-cols-2 gap-6">
           <button
-            type="update"
+            type="button"
             className="btn btn-success"
             onClick={handleUpdate}
           >
             Update
           </button>
           <button
-            type="delete"
+            type="button"
             className="btn btn-outline btn-error"
             onClick={handleDelete}
           >
