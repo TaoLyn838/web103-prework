@@ -37,7 +37,7 @@ const ViewCreator = () => {
       <div className="flex flex-col justify-center items-center m-10">
         <img
           src={creatorData.imageURL}
-          className="  rounded-lg shadow-2xl w-8/12"
+          className="  rounded-lg shadow-2l w-[800px] h-[700px] object-cover"
         />
         <div className="flex flex-col items-center">
           <div>

@@ -17,7 +17,7 @@ const ShowCreators = () => {
   }, [])
   console.log(creators)
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-3">
       <div className="grid grid-cols-3 gap-3">
         {creators.length > 0 ? (
           creators.map((creator) => (

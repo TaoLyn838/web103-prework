@@ -16,7 +16,7 @@ const ContentCreator = ({
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-between">
       <div className="relative">
         <img
-          className="rounded-t-lg w-full h-96 object-cover"
+          className="rounded-t-lg w-full h-[250px] object-cover"
           src={
             imageURL != null && imageURL !== ''
               ? imageURL
@@ -40,7 +40,7 @@ const ContentCreator = ({
               <Icons.Edit />
             </Link>
           </div>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 font-normal line-clamp-5 text-gray-700 dark:text-gray-400">
             {description}
           </p>
         </div>
